@@ -3,7 +3,6 @@
 import pytest
 from jwksServer.server import app  # Import the Flask app
 import jwt
-import datetime
 from cryptography.hazmat.primitives.asymmetric import rsa
 from cryptography.hazmat.primitives import serialization
 import base64
@@ -62,7 +61,6 @@ def validate_jwt(token, client):
     if key is None:
         raise InvalidTokenError("Public key not found in JWKS")
 
-    # Rest of your code to construct the public key and verify the token
     # Decode 'n' and 'e' from Base64URL
     def base64url_decode(input):
         rem = len(input) % 4
